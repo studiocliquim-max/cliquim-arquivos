@@ -1,17 +1,21 @@
 # Cliquim Arquivos
 
-Gerenciador local para Android inspirado em interfaces de desktop dos anos 1990, com ativos vetoriais próprios. Protótipo funcional 0.1.0 para avaliação, não publicado na Play Store.
+Gerenciador local para Android inspirado em interfaces de desktop dos anos 1990, com ativos vetoriais próprios. Protótipo funcional 0.4.0 para avaliação, não publicado na Play Store.
 
 ## Implementado
 - Navegação por pastas autorizadas via SAF e armazenamento compartilhado com concessão especial do usuário.
-- Lista/grade, ordenação, busca por nome e categorias na pasta atual, favoritos, tema claro/escuro.
+- Lista/grade e ordenação; busca por nome, tipo, data e tamanho com subpastas opcionais, sempre em um local autorizado.
+- Home autorizada com categorias, favoritos de arquivos/pastas, preferências, propriedades e ajuda em páginas próprias.
+- Capacidade local quando informada pelo volume; análise somente leitura dos arquivos acessíveis por categoria, com cancelamento e indicação de cobertura parcial.
+- Prévia interna de imagens, assíncrona e limitada a 2048 px por eixo, com orientação EXIF, anterior/próxima, propriedades, abrir com e compartilhar.
 - Criar pasta, renomear arquivos locais, seleção múltipla, copiar arquivos/pastas com nomes únicos e verificação SHA-256.
 - Mover arquivos locais após validação; exclusão explicitamente permanente; abrir/compartilhar pelo Android.
-- Registro local de resultado e aviso após interrupção. Não retoma operações incertas automaticamente.
+- Destino navegável, política manter ambos/pular e histórico do último lote com resultado por item. Não retoma operações incertas automaticamente.
 - Sem permissão INTERNET, SDK de anúncios, telemetria ou conta.
 
 ## Limitações explícitas
-- Busca não é recursiva; filtros por data/tamanho, recentes, miniatura interna e análise de volume ainda não implementados.
+- Busca/análise limitadas a 50 mil itens, profundidade 64 e orçamento de 60 s entre chamadas; busca mostra até mil resultados. Uma chamada de provedor pode demorar além disso. Cancelar interrompe entre leituras; não promete interromper um provedor bloqueado.
+- Busca não agrega vários locais/volumes em uma única consulta. Sem índice persistente, recentes nem miniaturas na listagem. Metadados ausentes são tratados como desconhecidos.
 - Renomear via SAF, mover pasta, pastas entre os modos local/SAF, substituição e lixeira não disponíveis.
 - Mover arquivo SAF conserva a origem; relata cópia confirmada e original mantido.
 - Operações em Activity, sem serviço: mantenha aberto durante transferências. Após encerramento, consulte resultado e arquivos. Cópia parcial fica no destino para revisão, sem limpeza destrutiva automática.
@@ -31,3 +35,6 @@ Assinatura debug apenas para teste. Não armazenar chaves no repositório.
 ## Referência
 https://guidebookgallery.org/screenshots/win98se/
 Imagem Explorer 98 SE inspecionada visualmente; imagens históricas não incorporadas ao APK. Cores inspiradas, ícones vetoriais originais. Sem logotipos/sons/fontes Microsoft. Revisão jurídica e de marca antes da venda.
+
+## Interface 0.4 (aguardando testes centralizados)
+As 14 pranchas orientam a composição e os estados. Foram implementadas páginas próprias para busca, propriedades, favoritos, preferências, ajuda, armazenamento, destino e transferências, preservando operações reais e desabilitando substituição/retomada não implementadas. A equivalência visual, acessibilidade e desempenho ainda dependem do Work único de testes. [Entrega e limitações da 0.4](docs/ENTREGA_04.md). [Histórico 0.3](docs/ENTREGA_03.md).
