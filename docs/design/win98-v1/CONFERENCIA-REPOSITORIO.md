@@ -46,3 +46,11 @@ Após o pedido mais recente de Müller para construir/instalar, este Work tentou
 - Consolidar dados ilustrativos, ícones próprios, barra de endereço e estados habilitados antes de implementar as pranchas.
 - O responsável pelo código deve conferir seu checkout local e complementar comandos reproduzíveis de execução de testes, instruções de instalação e changelog do aplicativo ao concluir a integração.
 - Preservar branches, histórico e dados de outros responsáveis. Nenhuma publicação de release ou mudança de produto é autorizada por esta auditoria.
+
+## Atualização posterior: APK 0.2.0 existente
+
+Após esta conferência, foi localizada a implementação em `feat/retro-ui-v02`, commit `a40ad9db7cfb01f8f9a81f00d561634814ed1fbe`, PR #2: https://github.com/studiocliquim-max/cliquim-arquivos/pull/2 . O build.gradle declara versionName 0.2.0/versionCode 2. A ausência de alterações na main não significa ausência de uma nova build.
+
+O documento docs/INTEGRACAO_UI_02.md dessa branch registra APK debug gerado no Mac, SHA256 `2a5318c4409f7ac50b92bf2644c754b7e6678fa672bd1cf21c241da9ccb4a79e`, com home, menus, seleção e diálogos retrô integrados às funções existentes. A integração é parcial; não equivale a todas as pranchas implementadas. Build e lint final passaram, mas os dois últimos ajustes visuais ainda precisam de repetição dos testes em aparelho/emulador. A versão 0.2 não estava instalada no Redmi no momento desse registro.
+
+Müller pediu expressamente para concluir a implementação e instalar. Este Work tentou novamente o terminal; continua indisponível. Não houve nova build ou instalação aqui. A continuação deve usar a branch existente e o Work com acesso ao Mac/USB, preservando dados do app, sem duplicar implementação. Conferir dispositivo, APK e assinatura antes da atualização; não desinstalar para contornar incompatibilidade de assinatura. Confirmar versão instalada e fazer teste visual limpo antes de anunciar conclusão.
