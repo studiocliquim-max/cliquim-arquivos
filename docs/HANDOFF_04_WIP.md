@@ -1,3 +1,5 @@
+> **Atualização:** conexão recuperada; continuação da 0.4 compilada e preparada para a fila centralizada de testes. O estado atual está em [ENTREGA_04.md](ENTREGA_04.md). O relato abaixo é o checkpoint histórico da desconexão.
+
 # Handoff 0.4 — desenvolvimento local, ainda sem build
 
 12/11/2026. O Mac ficou indisponível durante a continuação autorizada. Este documento preserva o ponto de retomada; não representa entrega de APK 0.4 nem aprovação de funcionalidades.
@@ -47,3 +49,4 @@ Revisar e aplicar o pequeno lote que ficou pendente:
 JDK: `/Users/mulleralmeidasantos/Documents/Codex/2026-11-11/deixa-eu-te-falar-eu-t/work/tooling/jdk-17.0.21+9/Contents/Home`. SDK: `/Users/mulleralmeidasantos/Library/Android/sdk`.
 
 As mudanças 0.4 listadas acima existem apenas na cópia local até que o próximo responsável consiga recuperá-la, revisar e sincronizar. Este commit envia somente o handoff.
+

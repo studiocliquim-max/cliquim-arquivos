@@ -31,7 +31,7 @@ final class RetroPreview {
         for (FileEngine.Node n : a.filtered())
             if (!n.directory && a.kind(n).equals("Imagens")) images.add(n);
         position = images.indexOf(selected);
-        if (position < 0) { images.add(selected); position = images.size() - 1; }
+        if (position < 0) { images.clear(); images.add(selected); position = 0; }
     }
 
     void show() {
