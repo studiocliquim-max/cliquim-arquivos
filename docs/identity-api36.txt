@@ -1,0 +1,1 @@
+PASS 41 UI checks, screenshots in app files. Fixture Cliquim-UI-QA-1794521474620
