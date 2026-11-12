@@ -164,15 +164,18 @@
     {
       "id": "13",
       "title": "13 — Tema escuro e edição com teclado",
-      "path": "boards/13-tema-escuro-teclado-corrigido.png",
+      "path": "boards/13-tema-escuro-teclado-v2.png",
       "mime_type": "image/png",
       "width": 1254,
       "height": 1254,
-      "bytes": 1638339,
-      "git_blob_sha": "5825dcacf72142df535185e7b25a6c157c0ee64e",
+      "bytes": 1755762,
+      "git_blob_sha": "d268d1705d11de06908e0d1e06b6d566faf1829a",
       "screen_count": 2,
       "status": "concept_for_review",
-      "corrected": true
+      "corrected": true,
+      "revision": 2,
+      "supersedes_git_blob_sha": "5825dcacf72142df535185e7b25a6c157c0ee64e",
+      "visual_check": "Right background displays authorized folder Trabalho, address Interno > Trabalho, folder/file list; no onboarding. Nova pasta dialog remains above keyboard."
     },
     {
       "id": "14",

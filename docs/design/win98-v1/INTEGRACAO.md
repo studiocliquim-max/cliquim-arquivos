@@ -25,7 +25,7 @@ As 14 imagens são propostas raster geradas por IA, com dados demonstrativos. N�
 4. Desabilitar ou remover ações sem contexto: Nova pasta em ajuda/permissões, seleção sem arquivos, Próxima no último item etc. Toolbars não devem aparentar operar durante um modal.
 5. A linha de status da prévia deve refletir o índice real e desabilitar navegação nos limites.
 6. Botões de favoritos removem apenas o atalho. Não excluir o arquivo de origem.
-7. A prancha 13 corrigida é a única referência de teclado desta entrega; não usar a versão anterior que tinha onboarding ao fundo.
+7. Usar exclusivamente `boards/13-tema-escuro-teclado-v2.png`. A exportação anteriormente chamada corrigida estava incorreta e foi retirada da árvore atual. A v2 foi inspecionada: mostra `Interno > Trabalho`, lista de pastas/arquivos autorizada e o diálogo Nova pasta acima do teclado, sem onboarding. O SHA Git vigente está no manifesto; nenhuma alteração foi feita no APK.
 8. Miniaturas e prévias precisam preservar proporções. Não presumir datas, tamanho, proprietário ou metadados ausentes.
 9. Menus devem caber e rolar com fonte grande, e ter foco acessível. Arrastar e toque longo não podem ser o único modo de acionar funções.
 10. Datas e capacidades ilustradas não constituem leitura do celular do usuário.

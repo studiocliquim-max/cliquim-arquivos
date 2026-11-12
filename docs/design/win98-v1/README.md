@@ -1,6 +1,6 @@
 # Cliquim Arquivos — pranchas Win98 v1
 
-Entrega visual de 12/11/2026: **14 PNGs, 28 telas/estados**, organizados abaixo para o desenvolvimento. A prancha 13 é a versão corrigida; a anterior foi excluída desta entrega.
+Entrega visual de 12/11/2026: **14 PNGs, 28 telas/estados**, organizados abaixo para o desenvolvimento. A prancha 13 vigente é a revisão **v2**. O arquivo anteriormente chamado corrigido ainda continha onboarding ao fundo e foi removido da árvore atual; permanece apenas no histórico Git. Use exclusivamente `boards/13-tema-escuro-teclado-v2.png`.
 
 ## Estado da aprovação e do produto
 
@@ -34,7 +34,7 @@ A home aprovada original permanece na conversa de origem; estas 14 pranchas são
 | 10 — Menus e ações | [PNG](boards/10-menus-acoes.png) | 1536 × 1024 |
 | 11 — Pasta vazia e acesso removido | [PNG](boards/11-pasta-vazia-acesso-removido.png) | 1254 × 1254 |
 | 12 — Espaço insuficiente e substituição | [PNG](boards/12-espaco-substituicao.png) | 1254 × 1254 |
-| 13 — Tema escuro e edição com teclado | [PNG](boards/13-tema-escuro-teclado-corrigido.png) | 1254 × 1254 |
+| 13 — Tema escuro e edição com teclado | [PNG](boards/13-tema-escuro-teclado-v2.png) | 1254 × 1254 |
 | 14 — Favoritos e ajuda | [PNG](boards/14-favoritos-ajuda.png) | 1254 × 1254 |
 
 ## Pré-visualizações
@@ -89,7 +89,7 @@ A home aprovada original permanece na conversa de origem; estas 14 pranchas são
 
 ### 13 — Tema escuro e edição com teclado
 
-![13 — Tema escuro e edição com teclado](boards/13-tema-escuro-teclado-corrigido.png)
+![13 — Tema escuro e edição com teclado](boards/13-tema-escuro-teclado-v2.png)
 
 ### 14 — Favoritos e ajuda
 
