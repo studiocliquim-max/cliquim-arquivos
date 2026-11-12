@@ -2,7 +2,7 @@ plugins { id 'com.android.application' }
 android {
  namespace 'com.studiocliquim.arquivos'
  compileSdk 36
- defaultConfig { applicationId 'com.studiocliquim.arquivos'; minSdk 26; targetSdk 36; versionCode 5; versionName '0.4.1'; testInstrumentationRunner (project.findProperty('testRunner') ?: 'com.studiocliquim.arquivos.SmokeTest') }
+ defaultConfig { applicationId 'com.studiocliquim.arquivos'; minSdk 26; targetSdk 36; versionCode 6; versionName '0.4.2'; testInstrumentationRunner (project.findProperty('testRunner') ?: 'com.studiocliquim.arquivos.SmokeTest') }
  compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
  buildTypes { release { minifyEnabled false } }
  lint { abortOnError true }
