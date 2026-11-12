@@ -1,0 +1,19 @@
+# Verificação 2026-11-12
+
+## Passou
+- Gradle 8.13 / JDK 17 / SDK 36: assembleDebug e assembleDebugAndroidTest.
+- Android lint: 0 erros; avisos de strings/localização, API alvo mais antiga que preview 37, backup, caminhos protegidos e gravação síncrona do pequeno journal.
+- 21 verificações puras de nomes e conflitos em tests/FileEngineTest.java.
+- 21 verificações instrumentadas no emulador Android: criação/listagem, cópia e bytes, conflito sem sobrescrever, renomeação e conflito, movimento local validado, proteção contra subpasta, cópia recursiva, cancelamento, exclusão somente de fixture, rejeição de caminhos privados/traversal, Activity e menu.
+- Fixture isolada no emulador: Download/Cliquim-QA-1794500845001. Não usa arquivos pessoais.
+- APK 0.1.0 (versionCode 1) instalado via adb install -r no Redmi 2209116AG conectado. Nenhuma permissão ampla concedida automaticamente no aparelho físico.
+
+## Pendente / não afirmar conclusão
+- Inspeção visual limpa do APK: captura do emulador foi sobreposta por ANR do outro app Retrozim MVP; no Redmi outro fluxo abriu escolha do launcher padrão. Não alteramos nem fechamos esses fluxos.
+- UI final está sendo refinada no Work original. Este APK é um protótipo funcional, não reprodução final aprovada.
+- Fluxos SAF reais, remoção de USB, grandes transferências/process death, TalkBack, fontes grandes, versões Android 26–35 e diferentes fabricantes ainda precisam de testes específicos.
+- Compartilhamento para aplicativos externos, análise de acesso/provedor em cenários adversos e concorrência precisam de revisão adicional.
+- Instalação no Redmi confirmada; Activity criada, mas interrompida por outro fluxo. Não declarar teste completo no aparelho.
+
+## Segurança de operação
+Sem sobrescrever. Cópias falhas conservam destinos parciais com aviso. Move de pastas indisponível; move SAF conserva original. Nenhuma operação é repetida automaticamente após encerramento. Exclusão permanente requer diálogo explícito. Não há garantia contra corrupção física ou alterações concorrentes.
