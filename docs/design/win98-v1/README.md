@@ -4,9 +4,9 @@ Entrega visual de 12/11/2026: **14 PNGs, 28 telas/estados**, organizados abaixo 
 
 ## Estado da aprovação e do produto
 
-Müller aprovou a direção visual da home e pediu o desenho das outras telas antes de programar. Estas pranchas adicionais são **conceitos para revisão**, não aprovação individual de todas as telas. São imagens raster, não Figma editável, assets de produção ou screenshots do APK.
+Müller inicialmente aprovou a direção visual da home e pediu as demais telas. Em 12/11/2026, após consultar este conjunto, pediu expressamente que o APK reproduza o detalhamento destas pranchas, com conferência tela por tela. Esta é a direção vigente para implementação. As pranchas são imagens raster de referência, não Figma editável, assets de produção ou screenshots do APK.
 
-O protótipo funcional 0.1.0 já existe neste repositório e foi instalado no Redmi conforme [QA](../../QA.md). A validação visual limpa no aparelho permanece pendente. O protótipo não incorpora necessariamente estas pranchas e **não é versão final**. Esta entrega altera apenas documentação e imagens.
+A versão de teste **0.2.0** integra parte do visual e foi instalada no Redmi preservando dados, conforme [registro do Work de desenvolvimento](https://github.com/studiocliquim-max/cliquim-arquivos/blob/70144520fbe1786fc2e40e2b08e2bf4a62abd411/docs/INTEGRACAO_UI_02.md). A implementação continua parcial e a validação completa permanece pendente. Veja a [auditoria das 14 pranchas × código e seis capturas reais](AUDITORIA-VISUAL-02.md), com correções e critérios de aceite. Este branch de design não alterou código, compilou ou instalou o aplicativo.
 
 A home aprovada original permanece na conversa de origem; estas 14 pranchas são suas derivações. [Documento de produto e inventário](https://chatgpt.com/space/page_f9a230db21e88191ab411d762e116cdd).
 
