@@ -1,17 +1,18 @@
 # Cliquim Arquivos
 
-Gerenciador local para Android inspirado em interfaces de desktop dos anos 1990, com ativos vetoriais próprios. Protótipo funcional 0.2.0 para avaliação, não publicado na Play Store.
+Gerenciador local para Android inspirado em interfaces de desktop dos anos 1990, com ativos vetoriais próprios. Protótipo funcional 0.3.0 para avaliação, não publicado na Play Store.
 
 ## Implementado
 - Navegação por pastas autorizadas via SAF e armazenamento compartilhado com concessão especial do usuário.
 - Lista/grade, ordenação, busca por nome e categorias na pasta atual, favoritos, tema claro/escuro.
+- Prévia interna de imagens, assíncrona e limitada a 2048 px por eixo, com orientação EXIF, anterior/próxima, propriedades, abrir com e compartilhar.
 - Criar pasta, renomear arquivos locais, seleção múltipla, copiar arquivos/pastas com nomes únicos e verificação SHA-256.
 - Mover arquivos locais após validação; exclusão explicitamente permanente; abrir/compartilhar pelo Android.
 - Registro local de resultado e aviso após interrupção. Não retoma operações incertas automaticamente.
 - Sem permissão INTERNET, SDK de anúncios, telemetria ou conta.
 
 ## Limitações explícitas
-- Busca não é recursiva; filtros por data/tamanho, recentes, miniatura interna e análise de volume ainda não implementados.
+- Busca não é recursiva; filtros por data/tamanho, recentes, miniaturas na listagem e análise de volume ainda não implementados.
 - Renomear via SAF, mover pasta, pastas entre os modos local/SAF, substituição e lixeira não disponíveis.
 - Mover arquivo SAF conserva a origem; relata cópia confirmada e original mantido.
 - Operações em Activity, sem serviço: mantenha aberto durante transferências. Após encerramento, consulte resultado e arquivos. Cópia parcial fica no destino para revisão, sem limpeza destrutiva automática.
@@ -32,5 +33,5 @@ Assinatura debug apenas para teste. Não armazenar chaves no repositório.
 https://guidebookgallery.org/screenshots/win98se/
 Imagem Explorer 98 SE inspecionada visualmente; imagens históricas não incorporadas ao APK. Cores inspiradas, ícones vetoriais originais. Sem logotipos/sons/fontes Microsoft. Revisão jurídica e de marca antes da venda.
 
-## Interface 0.2 (em revisão)
-Direção da home Win98 aplicada às funções existentes: menus, ícones originais, barra de ferramentas, endereço, seleção e diálogos. Não é a aprovação das demais telas das pranchas do PR #1. Sem dados ilustrativos convertidos em funcionalidades. [Registro de integração e testes](docs/INTEGRACAO_UI_02.md).
+## Interface 0.3 (aguardando testes centralizados)
+Relevo duplo, ícones próprios detalhados, colunas na lista, rodapé de seleção, menus planos, endereço separado e diálogos pelo conteúdo. Favoritos, preferências e propriedades têm dados reais; a prévia de imagens foi acrescentada. Não é a reprodução final das 14 pranchas. [Entrega e pendências da 0.3](docs/ENTREGA_03.md). [Histórico da 0.2](docs/INTEGRACAO_UI_02.md).

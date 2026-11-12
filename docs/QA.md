@@ -23,3 +23,8 @@ Inspeção visual parcial no emulador e 16 checks de UI concluídos sem sobrepos
 
 ## Redmi 0.2 confirmado
 Atualização preservando dados concluída e versão 2/0.2.0 verificada. Listagem inicial inspecionada visualmente sem cortes/ANR. Instrumentação final abortada deliberadamente ao detectar Gravador em primeiro plano, sem concluir os 16 checks; não interpretar Process crashed da interrupção como crash espontâneo. Não compartilhada captura contendo nomes reais de pastas. Ver registro de integração.
+
+## Atualização 0.3 — testes centralizados pendentes
+Build debug e APK de instrumentação compilados; lint: 0 erros, 23 avisos. Passaram 21 checks de nomes/conflitos e 9 checks de limite de resolução de imagens, todos no JVM local. Não são testes de I/O em Android.
+Nenhum simulador ou celular utilizado nesta retomada. Por direção de Müller, a execução e auditoria serão feitas por um único Work depois que todos os APKs estiverem preparados. Os resultados da 0.1/0.2 acima são históricos e não validam a 0.3.
+UiSmokeTest agora inclui prévia real de PNG de fixture, retorno à pasta e proteção contra leitura atrasada após voltar à home. Foi compilado, mas NÃO executado. Veja ENTREGA_03.md.
