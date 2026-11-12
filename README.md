@@ -1,6 +1,6 @@
 # Cliquim Arquivos
 
-Gerenciador local para Android inspirado em interfaces de desktop dos anos 1990, com ativos vetoriais próprios. Protótipo funcional 0.1.0 para avaliação, não publicado na Play Store.
+Gerenciador local para Android inspirado em interfaces de desktop dos anos 1990, com ativos vetoriais próprios. Protótipo funcional 0.2.0 para avaliação, não publicado na Play Store.
 
 ## Implementado
 - Navegação por pastas autorizadas via SAF e armazenamento compartilhado com concessão especial do usuário.
@@ -31,3 +31,6 @@ Assinatura debug apenas para teste. Não armazenar chaves no repositório.
 ## Referência
 https://guidebookgallery.org/screenshots/win98se/
 Imagem Explorer 98 SE inspecionada visualmente; imagens históricas não incorporadas ao APK. Cores inspiradas, ícones vetoriais originais. Sem logotipos/sons/fontes Microsoft. Revisão jurídica e de marca antes da venda.
+
+## Interface 0.2 (em revisão)
+Direção da home Win98 aplicada às funções existentes: menus, ícones originais, barra de ferramentas, endereço, seleção e diálogos. Não é a aprovação das demais telas das pranchas do PR #1. Sem dados ilustrativos convertidos em funcionalidades. [Registro de integração e testes](docs/INTEGRACAO_UI_02.md).

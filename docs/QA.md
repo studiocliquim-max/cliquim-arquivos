@@ -17,3 +17,6 @@
 
 ## Segurança de operação
 Sem sobrescrever. Cópias falhas conservam destinos parciais com aviso. Move de pastas indisponível; move SAF conserva original. Nenhuma operação é repetida automaticamente após encerramento. Exclusão permanente requer diálogo explícito. Não há garantia contra corrupção física ou alterações concorrentes.
+
+## Atualização 0.2
+Inspeção visual parcial no emulador e 16 checks de UI concluídos sem sobreposição. Últimos dois ajustes cosméticos somente build/lint, pois o emulador foi encerrado. Ver INTEGRACAO_UI_02.md para distinção exata, screenshots e pendências. Inspeção física Redmi continua pendente.
