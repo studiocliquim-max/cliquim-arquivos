@@ -15,6 +15,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /** Offline file operations. Run on a worker thread. No overwrite path exists. */
 public final class FileEngine {
     private final ContentResolver resolver;
+    private final Context context;
     public final AtomicBoolean cancelled = new AtomicBoolean(false);
     private static final String DIR = DocumentsContract.Document.MIME_TYPE_DIR;
     private static final String[] COLS = { DocumentsContract.Document.COLUMN_DOCUMENT_ID,
@@ -27,18 +28,20 @@ public final class FileEngine {
         public final long size, modified;
         public final File file;
         public final Uri uri;
-        private Node(File f, Uri u, String id, String name, String mime, long size, long modified, long flags) {
+        private Node(File f, Uri u, String id, String name, String mime, long size, long modified, long flags) {this(f,u,id,name,mime,size,modified,flags,true);}
+        static Node cached(File f,Uri u,String id,String name,String mime,long size,long modified,long flags){return new Node(f,u,id,name,mime,size,modified,flags,false);}
+        private Node(File f, Uri u, String id, String name, String mime, long size, long modified, long flags,boolean live) {
             this.file=f; this.uri=u; this.id=id; this.name=name; this.mime=mime;
             this.directory=DIR.equals(mime); this.size=size; this.modified=modified;
-            canWrite=f!=null ? f.canWrite() : (flags & DocumentsContract.Document.FLAG_SUPPORTS_WRITE)!=0;
-            canDelete=f!=null ? f.getParentFile()!=null && f.getParentFile().canWrite() : (flags & DocumentsContract.Document.FLAG_SUPPORTS_DELETE)!=0;
+            canWrite=f!=null && live ? f.canWrite() : (flags & DocumentsContract.Document.FLAG_SUPPORTS_WRITE)!=0;
+            canDelete=f!=null && live ? f.getParentFile()!=null && f.getParentFile().canWrite() : (flags & DocumentsContract.Document.FLAG_SUPPORTS_DELETE)!=0;
             canRename=f!=null && canDelete; // SAF rename is intentionally unavailable without safe conflict semantics.
             canCreate=f!=null ? directory && canWrite : (flags & DocumentsContract.Document.FLAG_DIR_SUPPORTS_CREATE)!=0;
         }
         @Override public boolean equals(Object o) { return o instanceof Node && id.equals(((Node)o).id); }
         @Override public int hashCode() { return id.hashCode(); }
     }
-    public FileEngine(Context context) { resolver=context.getApplicationContext().getContentResolver(); }
+    public FileEngine(Context context) { this.context=context.getApplicationContext();resolver=this.context.getContentResolver(); }
     public void resetCancellation() { cancelled.set(false); }
     private void check() throws IOException { if(cancelled.get() || Thread.currentThread().isInterrupted()) throw new InterruptedIOException("Operação cancelada; confira os itens concluídos."); }
     private static IOException failure(Exception e) { return e instanceof IOException ? (IOException)e : new IOException(e.getMessage()==null?"Não foi possível acessar este local.":e.getMessage(),e); }
@@ -106,6 +109,7 @@ public final class FileEngine {
         return name;
     }
     private Node create(Node parent,String requested,String type) throws IOException {
+        ListingCache.invalidate(context);
         check(); validName(requested); parent=refresh(parent);
         if(!parent.directory || !parent.canCreate) throw new IOException("Não é possível criar itens nesta pasta.");
         List<Node> before=list(parent); Set<String> names=new HashSet<>(), ids=new HashSet<>();
@@ -136,6 +140,7 @@ public final class FileEngine {
     }
     public Node createDirectory(Node parent,String name) throws IOException { return create(parent,name,DIR); }
     public Node rename(Node node,String name) throws IOException {
+        ListingCache.invalidate(context);
         check(); validName(name); node=refresh(node); if(name.equals(node.name)) return node;
         if(!node.canRename) throw new IOException("Este local não permite renomear.");
         if(node.file!=null) {
@@ -180,6 +185,7 @@ public final class FileEngine {
         }
     }
     public Node copy(Node source,Node destination,boolean move) throws IOException {
+        ListingCache.invalidate(context);
         check(); source=refresh(source); destination=refresh(destination);checkDestination(source,destination);
         if(move && source.directory)throw new IOException("Movimentação de pastas não está disponível; use Copiar.");
         Node made=copyRecursive(source,destination,new HashSet<>(),0);
@@ -221,6 +227,7 @@ public final class FileEngine {
         } finally {seen.remove(src.id);}
     }
     public void delete(Node node) throws IOException {
+        ListingCache.invalidate(context);
         check();node=refresh(node);if(!node.canDelete)throw new IOException("Este local não permite excluir.");
         removeRequested(node,new HashSet<>(),0);
     }
