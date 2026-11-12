@@ -20,3 +20,6 @@ Sem sobrescrever. Cópias falhas conservam destinos parciais com aviso. Move de 
 
 ## Atualização 0.2
 Inspeção visual parcial no emulador e 16 checks de UI concluídos sem sobreposição. Últimos dois ajustes cosméticos somente build/lint, pois o emulador foi encerrado. Ver INTEGRACAO_UI_02.md para distinção exata, screenshots e pendências. Inspeção física Redmi continua pendente.
+
+## Redmi 0.2 confirmado
+Atualização preservando dados concluída e versão 2/0.2.0 verificada. Listagem inicial inspecionada visualmente sem cortes/ANR. Instrumentação final abortada deliberadamente ao detectar Gravador em primeiro plano, sem concluir os 16 checks; não interpretar Process crashed da interrupção como crash espontâneo. Não compartilhada captura contendo nomes reais de pastas. Ver registro de integração.

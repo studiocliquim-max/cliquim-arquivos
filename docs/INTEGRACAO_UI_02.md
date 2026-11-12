@@ -36,3 +36,8 @@ adb -s <emulador> install -r app/build/outputs/apk/androidTest/debug/app-debug-a
 adb -s <emulador> shell am instrument -w com.studiocliquim.arquivos.test/com.studiocliquim.arquivos.UiSmokeTest
 ```
 APK final debug SHA256: 2a5318c4409f7ac50b92bf2644c754b7e6678fa672bd1cf21c241da9ccb4a79e.
+
+## Atualização: janela física Redmi
+0.2.0 (versionCode 2) atualizada via `adb install -r` com resultado Success, preservando dados; versão confirmada pelo PackageManager. Tela de listagem aberta e inspecionada sem cortes/ANR. Permissões já existentes foram preservadas, sem novas concessões. Captura física não enviada ao repositório porque contém nomes de pastas reais.
+Tentativa de executar UiSmokeTest no Redmi interrompida: Gravador assumiu o primeiro plano durante a execução. Encerrados somente processos Arquivos e seu teste, para não interferir no outro aplicativo. O retorno Process crashed decorreu dessa interrupção deliberada e não comprova crash espontâneo. Os 16 checks finais no build final continuam pendentes. Não alterados arquivos pessoais nem launcher padrão. Aparelho liberado após inspeção.
+21 testes puros de nomes/conflitos repetidos no host e aprovados nesta etapa. Repositório privado, nome, descrição, PR e remoto conferidos.
