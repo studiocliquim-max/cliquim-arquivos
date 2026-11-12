@@ -49,4 +49,3 @@ Revisar e aplicar o pequeno lote que ficou pendente:
 JDK: `/Users/mulleralmeidasantos/Documents/Codex/2026-11-11/deixa-eu-te-falar-eu-t/work/tooling/jdk-17.0.21+9/Contents/Home`. SDK: `/Users/mulleralmeidasantos/Library/Android/sdk`.
 
 As mudanças 0.4 listadas acima existem apenas na cópia local até que o próximo responsável consiga recuperá-la, revisar e sincronizar. Este commit envia somente o handoff.
-
