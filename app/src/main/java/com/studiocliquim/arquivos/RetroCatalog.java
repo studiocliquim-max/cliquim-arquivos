@@ -59,7 +59,9 @@ final class RetroCatalog {
         Button clear=a.iconButton("doc","Filtros",()->filters.setVisibility(filters.getVisibility()==View.GONE?View.VISIBLE:View.GONE));
         Button cancel=a.iconButton("back","Cancelar leitura",()->cancelled.set(true));a.enabled(cancel,false);
         page.footer(search,clear,cancel,a.iconButton("back","Fechar",page::close));
+        boolean[] manualRefresh={false};
         search.setOnClickListener(v->{
+            boolean force=manualRefresh[0];manualRefresh[0]=true;search.setText("Atualizar");
             cancelled.set(true);AtomicBoolean stop=new AtomicBoolean();cancelled=stop;
             FileEngine.Node selectedRoot=root;String q=query.getText().toString().trim();String selectedType=TYPES[type.getSelectedItemPosition()];
             long[] sizes={0,10485760L,104857600L,1073741824L};long min=sizes[size.getSelectedItemPosition()];long[] days={0,1,7,30};long day=days[date.getSelectedItemPosition()];long since=day==0?0:System.currentTimeMillis()-day*86400000L;
@@ -68,10 +70,15 @@ final class RetroCatalog {
             ((android.view.inputmethod.InputMethodManager)a.getSystemService(android.content.Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(query.getWindowToken(),0);
             RetroScreen.READ.execute(()->{
                 ArrayList<FileEngine.Node> found=new ArrayList<>(),parents=new ArrayList<>();FileEngine engine=new FileEngine(a);
+                ListingCache cache=new ListingCache(a);long epoch=cache.epoch();
+                String key=new org.json.JSONArray(java.util.Arrays.asList("search",selectedRoot.id,q,selectedType,Long.toString(min),Long.toString(day),Boolean.toString(recurse),Boolean.toString(hidden))).toString();
+                ListingCache.Snapshot cached=force?null:cache.get(key,selectedRoot);
+                if(cached!=null){page.post(()->{if(cancelled!=stop)return;summary.setText(cached.nodes.size()+" resultado(s) salvos • "+coverage(cached.report)+(cached.fresh?"":" • atualizando…"));showResults(results,cached.nodes,cached.parents);a.enabled(cancel,!cached.fresh);});if(cached.fresh)return;}
                 ReadOnlyScan.Result report=scanner(engine).run(selectedRoot,recurse,hidden,stop,(n,parent)->{
                     if(ScanRules.matches(n.name,n.mime,n.directory,n.size,n.modified,q,selectedType,min,since)){found.add(n);parents.add(parent);}
                     return found.size()<1000;
                 });
+                if(!stop.get())cache.put(key,selectedRoot,found,parents,report,epoch);
                 page.post(()->{if(cancelled!=stop)return;a.enabled(cancel,false);summary.setText(found.size()+" resultado(s) • "+coverage(report)+(found.isEmpty()?"\nNenhum arquivo encontrado nos locais lidos.":""));a.status.setText("Busca em "+selectedRoot.name);showResults(results,found,parents);});
             });
         });
