@@ -11,8 +11,8 @@ final class RetroUi {
   private int alpha=255;
   Frame(int fill,boolean dark,boolean inset,boolean focus){
    this.fill=fill;this.inset=inset;this.focus=focus;
-   light=dark?0xff929298:0xffffffff;shadow=dark?0xff08080b:0xff303034;
-   innerLight=dark?0xff62626a:0xffdfdfe2;innerShadow=dark?0xff202026:0xff808086;
+   light=dark?0xff617b99:0xffffffff;shadow=dark?0xff0a1728:0xff303034;
+   innerLight=dark?0xff405974:0xffdfdfe2;innerShadow=dark?0xff16283e:0xff808086;
    p.setAntiAlias(false);
   }
   private void color(int value){p.setColor(value);p.setAlpha(Color.alpha(value)*alpha/255);}

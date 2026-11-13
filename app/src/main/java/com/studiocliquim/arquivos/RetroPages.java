@@ -32,12 +32,12 @@ final class RetroPages {
     CheckBox check(LinearLayout parent,String title,boolean checked){CheckBox v=new CheckBox(a);v.setText(title);v.setTextColor(a.fg);v.setChecked(checked);v.setMinHeight(a.dp(48));parent.addView(v);return v;}
     void preferences(){
         RetroScreen page=new RetroScreen(a,"Preferências","computer");LinearLayout body=page.scroll();
-        page.section(body,"Aparência");CheckBox dark=check(body,"Tema clássico escuro",a.dark);page.text(body,"O tamanho do texto acompanha a preferência de fonte do Android.");
+        page.section(body,"Aparência");page.entry(body,"computer","Tema da interface","Claro, azul escuro ou acompanhar Android",()->SuiteTheme.showSelector(a));page.text(body,"O tamanho do texto acompanha a preferência de fonte do Android.");
         page.section(body,"Navegação");CheckBox folders=check(body,"Pastas primeiro",a.foldersFirst),hidden=check(body,"Mostrar arquivos ocultos",a.hidden),grid=check(body,"Exibir como ícones",a.gridMode);
         page.section(body,"Privacidade");page.text(body,"Somente neste aparelho. Sem conta, internet, anúncios, telemetria ou envio de arquivos. O acesso depende das permissões concedidas no Android.");
         page.entry(body,"folder","Limpar cache de navegação","Libera as listas salvas; seus arquivos permanecem intactos",()->RetroScreen.READ.execute(()->{new ListingCache(a).clear();page.post(()->a.toast("Cache de navegação limpo."));}));
         page.entry(body,"doc","Limpar histórico de resultados","Não exclui arquivos nem favoritos",()->{if(MainActivity.busy){a.toast("Aguarde o término da operação.");return;}a.prefs.edit().remove("result").remove("transfer_ledger").apply();TransferLedger.clear();a.toast("Histórico local de resultados limpo.");});
-        page.footer(a.iconButton("back","Cancelar",page::close),a.iconButton("check","Aplicar",()->{a.dark=dark.isChecked();a.hidden=hidden.isChecked();a.gridMode=grid.isChecked();a.foldersFirst=folders.isChecked();a.prefs.edit().putBoolean("dark",a.dark).putBoolean("hidden",a.hidden).putBoolean("grid",a.gridMode).putBoolean("foldersFirst",a.foldersFirst).apply();page.close();}));
+        page.footer(a.iconButton("back","Cancelar",page::close),a.iconButton("check","Aplicar",()->{a.hidden=hidden.isChecked();a.gridMode=grid.isChecked();a.foldersFirst=folders.isChecked();a.prefs.edit().putBoolean("hidden",a.hidden).putBoolean("grid",a.gridMode).putBoolean("foldersFirst",a.foldersFirst).apply();page.close();}));
     }
     void favorites(){
         RetroScreen page=new RetroScreen(a,"Favoritos","star");
