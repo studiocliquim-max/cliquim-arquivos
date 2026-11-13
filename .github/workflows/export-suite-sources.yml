@@ -1,0 +1,27 @@
+name: Exportar fontes para Suíte 98
+on:
+  push:
+    branches: [ci/export-suite-sources-2026-11-13]
+    paths: [.github/workflows/export-suite-sources.yml]
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 4028e47b2d684a851d52ef46eb54c805a345cef1
+          persist-credentials: false
+      - name: Arquivar o commit original sem credenciais
+        run: |
+          mkdir -p /tmp/fontes
+          git archive --format=tar HEAD | gzip -n > /tmp/fontes/arquivos.tar.gz
+          git rev-parse HEAD > /tmp/fontes/arquivos.commit
+          sha256sum /tmp/fontes/arquivos.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fonte-arquivos
+          path: /tmp/fontes/
+          retention-days: 2
