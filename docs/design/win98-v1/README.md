@@ -1,5 +1,7 @@
 # Cliquim Arquivos — pranchas Win98 v1
 
+**Fechamento:** consulte o [handoff de 13/11/2026](HANDOFF-2026-11-13.md) para o estado mais recente. Os registros da versão 0.2 abaixo são históricos.
+
 Entrega visual de 12/11/2026: **14 PNGs, 28 telas/estados**, organizados abaixo para o desenvolvimento. A prancha 13 vigente é a revisão **v2**. O arquivo anteriormente chamado corrigido ainda continha onboarding ao fundo e foi removido da árvore atual; permanece apenas no histórico Git. Use exclusivamente `boards/13-tema-escuro-teclado-v2.png`.
 
 ## Estado da aprovação e do produto
@@ -8,7 +10,7 @@ Müller inicialmente aprovou a direção visual da home e pediu as demais telas.
 
 A versão de teste **0.2.0** integra parte do visual e foi instalada no Redmi preservando dados, conforme [registro do Work de desenvolvimento](https://github.com/studiocliquim-max/cliquim-arquivos/blob/70144520fbe1786fc2e40e2b08e2bf4a62abd411/docs/INTEGRACAO_UI_02.md). A implementação continua parcial e a validação completa permanece pendente. Veja a [auditoria das 14 pranchas × código e seis capturas reais](AUDITORIA-VISUAL-02.md), com correções e critérios de aceite. Este branch de design não alterou código, compilou ou instalou o aplicativo.
 
-A home aprovada original permanece na conversa de origem; estas 14 pranchas são suas derivações. [Documento de produto e inventário](https://chatgpt.com/space/page_f9a230db21e88191ab411d762e116cdd).
+A home aprovada original permanece na conversa de origem; estas 14 pranchas são suas derivações. 
 
 ## Arquivos e uso
 
@@ -16,7 +18,7 @@ A home aprovada original permanece na conversa de origem; estas 14 pranchas são
 - `manifest.json`: nomes, dimensões reais, tamanhos e SHA Git dos blobs para conferência.
 - `INTEGRACAO.md`: decisões de interface, diferenças conhecidas e limites do protótipo.
 - Abrir os PNGs em tamanho original para inspecionar; não converter a tela inteira em fundo do aplicativo.
-- Reconstruir os componentes de forma responsiva. Ilustrações, textos e medidas são referências; validar legibilidade, TalkBack e toques em aparelho real.
+- Reconstruir os componentes de forma responsiva. Ilustrações, textos e medidas são referências; validar legibilidade, TalkBack e toques na etapa centralizada autorizada.
 
 ## Índice
 
